@@ -31,5 +31,3 @@
 + [canvas=>机器猫](https://ljfire.github.io/duolaAM/)
 + [音乐播放器](https://ljfire.github.io/song/)
 + [loading](https://ljfire.github.io/loading/)
-+ [[111]]# ljfire.github.io
-# ljfire.github.io
