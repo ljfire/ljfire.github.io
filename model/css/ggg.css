@@ -1,0 +1,39 @@
+.gallery {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.gallery .container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.gallery .container .row .gallery-text {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.gallery .container .row .gallery-text h3 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.gallery .container .row .gallery-text p {
+  font-size: 15px;
+  color: #999999;
+}
+.gallery .container .row .row {
+  margin: 0;
+}
+.gallery .container .row .row div[class^=col] {
+  padding: 5px;
+}
+.gallery .container .row .row div[class^=col] img {
+  border-radius: 5px;
+  width: 100%;
+}
+#myModal .modal-content {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+#myModal .modal-content .modal-body img {
+  width: 100%;
+}

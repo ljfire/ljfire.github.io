@@ -1,0 +1,856 @@
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cabin'), local('Cabin-Regular'), url(https://fonts.gstatic.com/s/cabin/v14/u-4x0qWljRw-Pd8w__g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Cabin Medium'), local('Cabin-Medium'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-PdfD3Ohluyw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Cabin SemiBold'), local('Cabin-SemiBold'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-Pdfv2-hluyw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cabin Bold'), local('Cabin-Bold'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-PdeL2uhluyw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_ZpC3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_bZF3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_c5H3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Montserrat Black'), local('Montserrat-Black'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_epG3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOUuhs.ttf) format('truetype');
+}
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body {
+  color: #666;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  transition: all 0.3s;
+}
+a {
+  text-decoration: none;
+}
+p,
+li,
+img {
+  transition: all 1s;
+}
+header {
+  background: url('../images/showcase_bg.jpg') no-repeat center;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+}
+header .navbar {
+  margin-bottom: 0;
+  height: 60px;
+  background-color: white;
+  border: 0;
+  position: relative;
+  z-index: 9;
+}
+header .navbar .navbar-header {
+  padding-left: 50px;
+  width: 100%;
+  height: 60px;
+  vertical-align: bottom;
+}
+header .navbar .navbar-header img {
+  width: 50%;
+  display: inline-block;
+  max-width: 200px;
+  margin-top: 10px;
+  line-height: 60px;
+}
+header .navbar .navbar-collapse {
+  padding-right: 50px;
+  background-color: white;
+  float: right;
+}
+header .navbar .navbar-collapse ul.navbar-nav {
+  background-color: white;
+}
+header .navbar .navbar-collapse ul.navbar-nav li {
+  background-color: white;
+}
+header .navbar .navbar-collapse ul.navbar-nav li a {
+  padding: 5px 15px;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+}
+header .navbar .navbar-collapse ul.navbar-nav li a::after {
+  content: '';
+  display: none;
+  border-bottom: 2px solid black;
+}
+header .navbar .navbar-collapse ul.navbar-nav li a:hover {
+  color: rgba(66, 171, 158);
+  background: none;
+}
+header .navbar .navbar-collapse ul.navbar-nav li a:hover:after {
+  display: block;
+}
+header .header-text {
+  width: 70%;
+  text-align: center;
+  margin-top: 40PX;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+header .header-text .header-text-inner {
+  border: 4px solid #000;
+  display: inline-block;
+  padding: 10px 20px;
+}
+header .header-text h1 {
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+}
+header .header-text p {
+  margin: 10px;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #000;
+  letter-spacing: 3.5px;
+}
+section.works {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ffffff;
+}
+section.works .top {
+  margin-bottom: 70px;
+  text-align: center;
+}
+section.works .top h2 {
+  color: #2b2d3f;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+section.works .top hr.line {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 70px;
+  border: 0;
+  border-top: solid 3px #2b2d3f;
+  text-align: center;
+}
+section.works .top .intro {
+  width: 300px;
+  margin: 0 auto;
+}
+section.works .top .intro a {
+  columns: #42AB9E;
+  font-weight: bold;
+}
+section.works ul {
+  margin: 0;
+}
+section.works ul li {
+  position: relative;
+  padding: 0;
+}
+section.works ul li img {
+  width: 100%;
+}
+section.works ul li .works-mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(66, 171, 158);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s;
+}
+section.works ul li .works-mask .mask-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+section.works ul li .works-mask .mask-text h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #F3E43C;
+  margin-left: -10px;
+  transition: all 1s;
+}
+section.works ul li .works-mask .mask-text p {
+  display: block;
+  font-size: 12px;
+  color: white;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-left: 10px;
+  transition: all 1s;
+}
+section.works ul li .works-mask.active {
+  opacity: 1;
+  background-color: rgba(66, 171, 158, 0.8);
+}
+section.works ul li .works-mask.active .mask-text h3 {
+  margin-left: 0;
+}
+section.works ul li .works-mask.active .mask-text p {
+  margin-left: 0;
+}
+section.works .works-center {
+  text-align: center;
+}
+section.works .works-center a {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 40px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 9px 20px;
+  background-color: #42AB9E;
+  transition: all 0.5s;
+}
+section.works .works-center a:hover {
+  background-color: #173e43;
+}
+section.phone {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ECECEC;
+}
+section.phone .phone-box {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  padding: 0 20px 40px;
+  color: #888888;
+}
+section.phone .phone-box span {
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid #f8f8f8;
+}
+section.phone .phone-box h5 {
+  color: #888888;
+  margin: 10px 0;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+section.phone .phone-box p {
+  margin-bottom: 20px;
+}
+section.phone .phone-box:hover {
+  color: black;
+}
+section.phone .phone-box:hover h5 {
+  color: black;
+}
+section.phone .boxb {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 3s;
+}
+section.phone.active .phone-box {
+  visibility: visible;
+  opacity: 1;
+}
+section.phone.active .boxb {
+  visibility: visible;
+  opacity: 1;
+}
+section.phone.active .boxb > div img {
+  margin: 0 auto;
+}
+section.serives {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ffffff;
+}
+section.serives .top {
+  margin-bottom: 70px;
+  text-align: center;
+}
+section.serives .top h2 {
+  color: #2b2d3f;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+section.serives .top hr.line {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 70px;
+  border: 0;
+  border-top: solid 3px #2b2d3f;
+  text-align: center;
+}
+section.serives .top .intro {
+  width: 300px;
+  margin: 0 auto;
+}
+section.serives .serives-pic .serives-pic-c {
+  margin-bottom: 30px;
+  text-align: center;
+}
+section.serives .serives-pic .serives-pic-c h3 {
+  font-size: 14px;
+}
+section.serives .serives-pic .serives-pic-c:hover img {
+  transform: rotateY(120deg);
+}
+section.partner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ECECEC;
+}
+section.partner .top {
+  margin-bottom: 70px;
+  text-align: center;
+}
+section.partner .top h2 {
+  color: #2b2d3f;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+section.partner .top hr.line {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 70px;
+  border: 0;
+  border-top: solid 3px #2b2d3f;
+  text-align: center;
+}
+section.partner .top .intro {
+  width: 300px;
+  margin: 0 auto;
+}
+section.partner .partner-card {
+  margin: 40px auto 60px;
+  float: left;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 0 15px 20px;
+}
+section.partner .partner-card img {
+  height: 100px;
+  width: 100px;
+  margin: -50px auto 0;
+  border: 5px solid #ECECEC;
+  border-radius: 50%;
+}
+section.partner .partner-card h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+section.partner .partner-card p {
+  font-size: 14px;
+  color: #816943;
+}
+section.stet {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: url('../images/bg.jpg');
+  background-attachment: fixed;
+}
+section.stet blockquote {
+  position: relative;
+  padding: 40px 20px 0;
+  text-align: center;
+  border: none;
+  line-height: 1.2;
+  color: white;
+}
+section.stet blockquote p {
+  font-size: 26px;
+}
+section.stet blockquote p::before {
+  content: '\201D';
+  font-size: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+section.stet blockquote p::after {
+  content: '\201D';
+  font-size: 90px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+section.blog {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+section.blog .top {
+  margin-bottom: 70px;
+  text-align: center;
+}
+section.blog .top h2 {
+  color: #2b2d3f;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+section.blog .top hr.line {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 70px;
+  border: 0;
+  border-top: solid 3px #2b2d3f;
+  text-align: center;
+}
+section.blog .top .intro {
+  width: 300px;
+  margin: 0 auto;
+}
+section.blog .hihi {
+  overflow: hidden;
+}
+section.blog .hihi .blog-centent {
+  width: 700px;
+  transition: all 0.8s;
+}
+section.blog .hihi .blog-centent::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.blog .hihi .blog-centent .blog-card {
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 300px;
+  float: left;
+}
+section.blog .hihi .blog-centent .blog-card .bbbbb {
+  border: 1px solid #eee;
+}
+section.blog .hihi .blog-centent .blog-card .caption {
+  padding: 10px 30px 30px;
+}
+section.blog .hihi .blog-centent .blog-card .caption h3 {
+  line-height: 1;
+  margin: 20px 0;
+}
+section.blog .hihi .blog-centent .blog-card .caption h3 a {
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+}
+section.blog .hihi .blog-centent .blog-card .caption h3 a:hover {
+  color: #42AB9E;
+}
+section.blog .hihi .blog-centent .blog-card .caption > a {
+  width: 50%;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  margin: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 9px 20px;
+  background-color: #42AB9E;
+  transition: all 0.5s;
+}
+section.blog .hihi .blog-centent .blog-card .caption > a:hover {
+  background-color: #173e43;
+}
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  color: #bbb;
+  background-color: #212121;
+  display: block;
+}
+footer h3,
+footer h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #e9e9e9;
+  margin: 3px 0 12px;
+}
+footer .inp .inp-right {
+  height: 210px;
+}
+footer .inp .form-group {
+  cursor: pointer;
+}
+footer .inp .form-group .form-control {
+  height: 45px;
+  background: none;
+}
+footer .inp .form-group input {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+footer .inp .form-group #message {
+  height: 165px;
+}
+footer .inp .form-group #exampleInputSubmit1 {
+  background: #38d2fe;
+  border: none;
+  color: #fff;
+}
+footer .inp button {
+  border: solid 1px #ccc;
+  background: none;
+}
+footer .inp .tu {
+  padding-top: 30px;
+  padding-left: 10px;
+}
+footer .inp .tu .ce {
+  margin-top: 15px;
+}
+footer .inp .tu .ce span {
+  font-size: 23px;
+  color: #e9e9e9;
+}
+footer .dixian {
+  margin-top: 48px;
+  text-align: center;
+  border-top: #828282 1px solid;
+  padding-top: 40px;
+}
+footer .dixian a {
+  text-decoration: none;
+  color: #fc427b;
+}
+.www-1 {
+  width: 100%;
+}
+.www-2 {
+  width: 50%;
+}
+.www-3 {
+  width: 33.33333333%;
+}
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) {
+  header {
+    height: 600px;
+  }
+  header .header-text {
+    margin: 40px auto;
+  }
+  header .header-text .header-text-inner {
+    padding: 20px 40px;
+  }
+  header .header-text h1 {
+    font-size: 49px;
+    letter-spacing: 13px;
+  }
+  header .header-text p {
+    margin: 10px;
+    font-size: 18px;
+    letter-spacing: 6.5px;
+  }
+  header .navbar {
+    height: 80px;
+  }
+  header .navbar .navbar-header {
+    width: 30%;
+    height: 80px;
+    vertical-align: bottom;
+    line-height: 80px;
+  }
+  header .navbar .navbar-header img {
+    margin: 0;
+    width: 100%;
+    max-width: 350px;
+    line-height: 80px;
+    margin-top: 0;
+  }
+  header .navbar .navbar-collapse {
+    width: 70%;
+    float: left;
+    margin-left: 0;
+  }
+  header .navbar .navbar-collapse ul.navbar-nav {
+    padding-top: 25px;
+  }
+  header .navbar .navbar-collapse ul.navbar-nav li {
+    padding: 5px 0;
+  }
+  header .navbar .navbar-collapse ul.navbar-nav li a {
+    padding: 0px 8px;
+    font-size: 16px;
+  }
+  section.works {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  section.works .top h2 {
+    font-size: 30px;
+  }
+  section.works ul li .works-mask .mask-text {
+    padding: 5% 5%;
+  }
+  section.works ul li .works-mask .mask-text h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  section.works ul li .works-mask .mask-text p {
+    line-height: 1.8;
+    font-size: 12px;
+  }
+  section.phone {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  section.serives {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  section.serives .top h2 {
+    font-size: 30px;
+  }
+  section.serives .serives-pic .serives-pic-c h3 {
+    font-size: 17px;
+  }
+  section.stet {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  section.stet blockquote {
+    padding: 40px 120px 0;
+  }
+  section.stet blockquote p {
+    font-size: 34px;
+  }
+  section.stet blockquote p::before {
+    font-size: 100px;
+  }
+  section.stet blockquote p::after {
+    font-size: 100px;
+  }
+  section.partner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  section.partner .top h2 {
+    font-size: 30px;
+  }
+  section.blog {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 650px;
+  }
+  section.blog .top h2 {
+    font-size: 30px;
+  }
+  section.blog .hihi {
+    overflow: hidden;
+  }
+  section.blog .hihi .blog-centent {
+    width: 1600px;
+  }
+  section.blog .hihi .blog-centent .blog-card {
+    padding-right: 15px;
+    padding-left: 0;
+    width: 250px;
+  }
+  footer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 992px) {
+  header {
+    height: 660px;
+  }
+  header .navbar ul.navbar-nav li {
+    margin: 0 5px;
+  }
+  section.blog {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 650px;
+  }
+  section.blog .hihi {
+    overflow: hidden;
+  }
+  section.blog .hihi .blog-centent {
+    width: 1600px;
+  }
+  section.blog .hihi .blog-centent .blog-card {
+    padding-right: 15px;
+    padding-left: 0;
+    width: 320px;
+  }
+  section.stet blockquote p {
+    font-size: 42px;
+  }
+  section.stet blockquote p::before {
+    font-size: 110px;
+  }
+  section.stet blockquote p::after {
+    font-size: 110px;
+  }
+}
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1200px) {
+  header {
+    height: 700px;
+  }
+  section.blog {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 650px;
+  }
+  section.blog .hihi {
+    overflow: hidden;
+  }
+  section.blog .hihi .blog-centent {
+    width: 1600px;
+  }
+  section.blog .hihi .blog-centent .blog-card {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 380px;
+  }
+  section.stet blockquote p {
+    font-size: 46px;
+  }
+  section.stet blockquote p::before {
+    font-size: 130px;
+  }
+  section.stet blockquote p::after {
+    font-size: 130px;
+  }
+}

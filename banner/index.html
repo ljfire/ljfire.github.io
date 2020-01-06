@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>banner</title>
+		<style>
+			body,
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img {
+				width: 100%;
+				vertical-align: middle;
+			}
+			.slider {
+				width: 850px;
+				margin: 40px auto;
+				background: lightblue;
+				position: relative;
+			}
+			.content li{
+				overflow: hidden;
+				height: 480px;
+			}
+			.content li {
+				opacity: 0;
+				transition: all 1s;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.content li:first-child {
+				opacity: 1;
+				position: static;
+			}
+			.paganition {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				/* opacity: 0.5; */
+			}
+			.paganition span {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				font-size: 44px;
+				line-height: 40px;
+				color: rgba(255, 255, 255, 0.849);
+				cursor: pointer;
+				background-color: rgba(255, 255, 255, 0.3);
+				opacity: 0.5;
+			}
+			.paganition span:last-child {
+				float: right;
+			}
+			.paganition span:hover{
+				opacity: 0.9;
+			}
+			.dot {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+			.dot span {
+				width: 15px;
+				height: 15px;
+				display: inline-block;
+				background: rgb(46, 112, 114);
+				margin: 10px;
+				cursor: pointer;
+			}
+			.dot span.active {
+				background: rgb(159, 220, 223);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slider">
+			<ul class="content">
+				<li><img src="./a1.png" alt="" /></li>
+				<li><img src="./a2.png" alt="" /></li>
+				<li><img src="./a5.png" alt="" /></li>
+			</ul>
+			<div class="paganition">
+				<span>&lt;</span>
+				<span>&gt;</span>
+			</div>
+			<div class="dot"></div>
+		</div>
+	</body>
+	<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		$(".content li").each(function(index, element) {
+			$(".dot").append("<span></span>");
+		}); // 分页器  生成相应数量点点
+		var nowshow = 0;
+		function qie(index) {
+			$(".content li")
+				.eq(index)
+				.css("opacity", "1")
+				.siblings()
+				.css("opacity", "0");
+			gaoliang(index);
+		} // 切换方式;
+		function gaoliang(index) {
+			$(".dot span")
+				.eq(index)
+				.addClass("active")
+				.siblings()
+				.removeClass("active");
+		} // 高亮
+		gaoliang(0);
+		$(".dot span").click(function() {
+			qie($(this).index());
+			nowshow = $(this).index();
+			gaoliang($(this).index());
+		}); // 点点  切图
+		$(".paganition span:first-child").click(function() {
+			nowshow--;
+			nowshow = nowshow < 0 ? $(".content li").length - 1 : nowshow;
+			qie(nowshow);
+		}); // // 上一个
+		$(".paganition span:last-child").click(function() {
+			nowshow++;
+			nowshow = nowshow > $(".content li").length - 1 ? 0 : nowshow;
+			qie(nowshow);
+		}); // // 下一个
+		var time = null;
+		function aotuPlay() {
+			time = setInterval(function(params) {
+				nowshow++;
+				nowshow = nowshow > $(".content li").length - 1 ? 0 : nowshow;
+				qie(nowshow);
+			}, 2000);
+		} // 自动轮播
+		aotuPlay();
+		$(".slider").mouseenter(function() {
+			clearInterval(time);
+		}); // 鼠标进入 就停止定时器
+		$(".slider").mouseleave(function() {
+			aotuPlay();
+		}); // 鼠标出去就再次自动轮播
+	</script>
+</html>

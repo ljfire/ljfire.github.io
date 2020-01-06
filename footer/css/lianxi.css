@@ -1,0 +1,153 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a {
+	list-style: none;
+	text-decoration: none;
+	color: #fff;
+}
+ul li {
+	list-style: none;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.cl {
+	clear: both;
+}
+.header {
+	height: 790px;
+	background: url("../images/banner.jpg") no-repeat ;
+	position: relative;
+
+}
+.header_war {
+	width: 970px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+
+}
+
+/**/
+.header_top {
+	width: 970px;
+	height: 60px;
+	margin: 30px auto;
+	background-color: black;
+	opacity: 0.5;
+}
+.top_menu {
+	width: 540px;
+}
+.top_menu ul li {
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	margin: 10px;
+}
+.top_menu ul li:nth-child(1) a {
+	border-top: 4px yellow solid;
+}
+.top_menu .home a {
+		color: yellow;
+}
+.top_menu label {
+	display: inline-block;
+    max-width: 100%;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+.top_menu ul li >a:hover {
+	color: yellow;
+	border-top: 4px yellow solid;
+}
+.search {
+	width: 250px;
+	height: 40px;
+	margin: 10px;
+	border: 1px solid #fff;
+	overflow: hidden;
+}
+.search input {
+	list-style: none;
+	width: 180px;
+	height: 35px;
+}
+.search form>a {
+	display: inline-block;
+	width: 40px;
+	height: 35px;
+	background: url("../images/search.png") no-repeat center center;
+}
+.search input,button {
+	list-style: none;
+	border: 0;
+	background: 0;
+}
+/**/
+.header_ce {
+	width: 320px;
+	height: 100px;
+	border-top: 4px #fff solid;
+	border-bottom: 4px #fff solid;
+	margin: 0 auto;
+	margin-top: 250px;
+
+}
+.header_ce a {
+	font-size: 80px;
+}
+.header_bottom {
+	position: relative;
+}
+.header_war .bottom_img { 
+	height: 400px;
+	margin-top: 150px;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.bottom_img >div {
+	width: 235px;
+	height: 100%;
+	background-color: lightgreen;
+}
+.content {
+	height: 2000px;
+	overflow: hidden;
+}
+.about-section {
+	width: 970px;
+	height: 750px;
+	margin:250px auto 0;
+}
+
+.about-section h3{
+	line-height: 50px;
+	font-weight: 200px;
+	font-size: 40px;
+}
+.about-section_l {
+	margin-top: 30px;
+}
+.about-section_r {
+	width: 550px;
+	margin-top: 30px;
+}
+.about-section_r p{
+	color: #ccc;
+	margin-bottom: 30px;
+}

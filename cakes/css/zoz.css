@@ -1,0 +1,450 @@
+
+html {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+body.custom-background {
+	background-size: cover;
+}
+
+.skip-link { 
+	z-index: 1031!important;
+	top: 40px!important;
+	color: rgba(255,162,0,1.00)!important;
+	text-decoration: none!important;
+}
+
+.header {
+	background-attachment: fixed;
+	background-position: top center;
+	background-size: cover;
+}
+
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+
+blockquote,
+q {
+	quotes: """";
+}
+
+blockquote {
+	margin-bottom: 1.5em;
+	padding: 15px 20px;
+	font-size: 17.5px;
+	font-weight: 300;
+	line-height: 24px;
+}
+
+.entry-content blockquote p {
+	color: #313131;
+	font-weight: 300;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	overflow: auto;
+	max-width: 100%;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	border: 1px solid #e7e7e7;
+	background: #eee;
+	background: #fafafa;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+hr {
+	height: 1px;
+	margin-bottom: 1.5em;
+	border: 0;
+	background-color: #ccc;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 0;
+	padding-left: 20px;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li>ul,
+li>ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+}
+
+table {
+	width: 100%;
+	margin: 0 0 1.5em;
+}
+
+table,
+th,
+td {
+	border: 1px solid #eaeaea;
+}
+
+th,
+td {
+	padding: 0.4em;
+}
+
+.wp-caption {
+	max-width: 100%;
+	margin-bottom: 1.6em;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+	-webkit-transition: all ease 0.25s;
+	transition: all ease 0.25s;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: 1px dotted rgba(255, 162, 0, 1.00);
+	text-decoration: none;
+}
+.row.no-gutters[class^="col-"],
+.row.no-gutters[class*=" col-"] {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: inherit;
+}
+
+.nav>li>a {
+	padding: inherit;
+}
+
+.navbar-nav.navbar-right:last-child {
+	margin-right: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus {
+	outline: 1px solid rgba(255,162,0,1.00);
+	outline-style: dotted;
+	color: rgba(255,162,0,1.00);
+}
+
+.navbar-inverse .navbar-nav > li.not-active {
+	color: rgba(255,162,0,1.00);
+}
+
+.navbar-inverse button#menu-toggle:hover,
+.navbar-inverse button#menu-toggle:focus {
+	background-color: rgba(255,162,0,1.00);
+}
+
+.navbar-inverse button#menu-toggle:hover .icon-bar,
+.navbar-inverse button#menu-toggle:focus .icon-bar {
+	background-color: #fff;
+}
+
+.mailchimp-success,
+.mailchimp-error,
+.email-success,
+.email-error {
+	display: none;
+	margin-top: 15px;
+}
+
+.mailchimp-success span,
+.mailchimp-error span,
+.email-success span,
+.email-error span {
+	margin-right: 10px;
+}
+
+h1,
+h2 {
+	font-family: "Cabin", Helvetica Neue, Sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 40px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: 34px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 28px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 22px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h5 {
+	font-size: 14px;
+	line-height: 18px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h2.intro {
+	font-size: 3.75rem;
+	line-height: 5rem;
+	text-align: center;
+}
+
+h1.single-title {
+	margin-top: 0;
+	color: #000;
+	font-size: 24px;
+	line-height: 28px;
+	text-transform: uppercase;
+}
+
+h1.page-title {
+	margin-top: 0;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5 {
+	margin-top: 35px;
+	margin-bottom: 20px;
+	color: #000;
+}
+.standard-button {
+	font-weight: 600;
+}
+
+strong,
+.strong {
+	font-weight: 600;
+}
+
+.dark-text {
+	color: #454545;
+}
+
+.transparent-text {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.transparent-text-dark {
+	color: rgba(49, 49, 49, 0.5);
+}
+
+.small-text {
+	font-size: 14px;
+}
+
+.small-text-medium {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.button-text {
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.price .month {
+	color: #666;
+	font-family: "Open Sans", Helvetica Neue, Sans-serif;
+	font-size: 16px !important;
+}
+
+.bypostauthor {
+	position: static;
+}
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	display: block;
+	clear: both;
+	margin: 0 auto;
+}
+
+
+
+.standard-button {
+	padding: 18px 40px 18px 40px;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.secondary-button {
+	padding: 20px 35px 20px 35px;
+	border: none;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-color: rgba(255, 255, 255, 0.5);
+	border-radius: 3px;
+	color: #fff;
+	background: transparent;
+	font-size: 14px;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.secondary-button:hover {
+	border-color: #fff;
+	background: transparent;
+}
+
+.secondary-button-dark {
+	padding: 20px 35px 20px 35px;
+	border: none;
+	border-color: rgba(39, 39, 39, 0.5);
+	border-radius: 3px;
+	color: #272727;
+	background: transparent;
+	font-size: 14px;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.secondary-button-dark:hover {
+	border-color: #272727;
+	color: #272727;
+	background: transparent;
+}
+
+.navbar-register-button {
+	border: none;
+	color: #fff !important;
+	font-weight: 500;
+	text-transform: uppercase;
+	-webkit-transition: none;
+	transition: none;
+}

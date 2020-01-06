@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>花花草草</title>
+    <style>
+        .wrap {
+            float: left;
+            width: 300px;
+            height: 300px;
+            /* background-color: rgb(204, 70, 70); */
+            position: relative;
+            perspective: 500px;
+            border-radius: 50%;
+            margin: 5px;
+            margin-right: 100px;
+        }
+
+        img {
+            transition: all 0.6s;
+            width: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgb(0, 0, 0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.6s;
+            box-sizing: border-box;
+            border: #ecab18 10px solid;
+            border-right-color: #1ad280;
+            border-bottom-color: #1ad280;
+        }
+
+        .wrap .text {
+            transition: all 0.6s;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            padding: 50px 30px;
+            box-sizing: border-box;
+            background-color: rgb(0, 0, 0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        h3 {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 22px;
+            margin: 0 30px;
+            padding: 30px 0 0 0;
+            height: 80px;
+            text-shadow: 0 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            color: #bbb;
+            padding: 10px 5px;
+            font-style: italic;
+            margin: 0 10px;
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* 1 */
+        .wrap:hover .text {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .wrap:hover .box.one {
+            background-color: rgb(0, 0, 0, 0.5);
+            transform: rotate(180deg);
+        }
+
+        /*  2*/
+        .box.two {
+            border: 20px solid rgb(255, 255, 255, 0.5)
+        }
+
+        .text.two {
+            background-color: rgb(0, 0, 0, 0.5);
+            transform: translateX(-300px)
+        }
+
+        .wrap.two:hover img {
+            transform: rotate(-45deg);
+        }
+
+        .wrap.two:hover .text.two {
+            transform: translateX(0);
+        }
+
+        /* 3 */
+
+        .wrap.three img {
+            z-index: 999;
+        }
+
+        .box.three {
+            z-index: 999;
+            border: 20px solid rgb(255, 255, 255, 0.5)
+        }
+
+        .text.three {
+            background-color: #333333;
+            transform: translateX(-300px)
+        }
+
+        .wrap.three:hover img {
+
+            transform: translateX(200px) scale(0.5);
+        }
+
+        .wrap.three:hover .box.three {
+
+            transform: translateX(200px) scale(0.5);
+        }
+
+        .wrap.three:hover .text.three {
+            transform: translateX(0);
+        }
+
+        /* 4 */
+
+        .box.four {
+            border: 20px solid rgb(255, 255, 255, 0.5)
+        }
+
+        .text.four {
+            background-color: #428bca;
+            transform: translateX(-300px)
+        }
+
+        .wrap.four:hover img {
+            opacity: 0;
+            transform: translateX(300px);
+            visibility: hidden;
+        }
+
+        .wrap.four:hover .box.four {
+            opacity: 0;
+            transform: translateX(300px);
+            visibility: hidden;
+        }
+
+        .wrap.four:hover .text.four {
+            transform: translateX(0);
+        }
+
+        /* 5 */
+
+        .box.five {
+            border: 20px solid rgb(255, 255, 255, 0.5)
+        }
+
+        .text.five {
+            background-color: #428bca;
+            transform: scale(0);
+        }
+
+        .wrap.five:hover img {
+            opacity: 0;
+            transform: scale(1.3);
+        }
+
+        .wrap.five:hover .box.five {
+
+            transform: scale(1.3);
+            opacity: 0;
+        }
+
+        .wrap.five:hover .text.five {
+            transform: scale(1)
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap one">
+        <img src="./img/2" alt="">
+        <div class="box one"></div>
+        <div class="text one">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+
+    <div class="wrap two">
+        <img src="./img/6.jpg" alt="">
+        <div class="box two"></div>
+        <div class="text two">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+
+
+    <div class="wrap  three">
+        <img src="./img/3.jpg" alt="">
+        <div class="box  three"></div>
+        <div class="text  three">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+
+    <div class="wrap  four">
+        <img src="./img/5.jpg" alt="">
+        <div class="box  four"></div>
+        <div class="text  four">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+    <div class="wrap  three">
+        <img src="./img/3.jpg" alt="">
+        <div class="box  three"></div>
+        <div class="text  three">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+    <div class="wrap  five">
+        <img src="./img/5.jpg" alt="">
+        <div class="box  five"></div>
+        <div class="text  five">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
