@@ -1,5 +1,9 @@
 ## 项目展示
 
+### VUE 
+  
++ [音乐](https://ljfire.github.io/dist/)
+
 ### html+css+js 
   
 + [种地](https://ljfire.github.io/footer/)
