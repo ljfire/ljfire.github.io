@@ -2,7 +2,7 @@
 
 ### VUE 
   
-+ [音乐](https://ljfire.github.io/dist/)
++ [音乐](https://ljfire.github.io/music/)
 
 ### html+css+js 
   
