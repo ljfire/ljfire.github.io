@@ -3,6 +3,8 @@
 ### VUE 
   
 + [音乐](https://ljfire.github.io/music/dist/)
++ [阅读](https://ljfire.github.io/books/dist/)
+
 
 ### html+css+js 
   
