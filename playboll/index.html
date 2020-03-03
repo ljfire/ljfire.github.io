@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 660px;
+            height: 640px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <script src="./preloadsheet.js"></script>
+    <script>
+        var colorArr = [
+            "#ca855c",
+            "#cfbdb9",
+            "#638b8b",
+            "#666633",
+            "#6699CC",
+            "#CCCCFF",
+            "#91aba0",
+            "#66CCCC",
+            "#787a6d"
+        ];
+        var img = new Image();
+        img.src = "./preloadsheet.png";
+
+        function randomColor() {
+            return colorArr[Math.floor(Math.random() * colorArr.length)];
+        }
+
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector("#canvas")
+        var ctx = canvas.getContext('2d')
+        // 
+        var game = {
+            boxW: 660,
+            boxH: 640,
+            center: {
+                x: 660 / 2,
+                y: 640 / 2
+            }
+        };
+        // 画布大小
+        canvas.width = game.boxW;
+        canvas.height = game.boxH;
+
+        // 绘制背景
+        function drawBg() {
+            ctx.fillStyle = "#eaeaea";
+            ctx.fillRect(0, 0, game.boxW, game.boxH);
+        }
+        // 画球球
+        function drawCircle(x, y, r, color, fill) {
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            ctx.closePath();
+            if (fill) {
+                ctx.fillStyle = color;
+                ctx.fill();
+            } else {
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+        }
+
+        // 准备
+        // 球球
+        var l = {
+            r: 50,
+            maxR: 50,
+            minR: 40,
+            zoom: false,
+            color: randomColor()
+        }
+        var r = {
+            r: 30,
+            maxR: 30,
+            minR: 20,
+            zoom: false,
+            color: randomColor()
+        }
+        // 
+        function donghua(obj) {
+            if (!obj.zoom) {
+                obj.r--
+                obj.zoom = obj.r <= obj.minR ? true : false
+            } else {
+                obj.r++
+                obj.zoom = obj.r >= obj.maxR ? false : true
+            }
+        }
+
+        var start_btn_png = {
+            name: "start_btn_png",
+            w: (game.boxW * 2) / 4,
+            h: ((file["start_btn_png"].h / file["start_btn_png"].w) * (game.boxW * 2)) / 4,
+            x: (game.boxW - (game.boxW * 2) / 4) / 2,
+            y: game.boxH / 2 + 50
+        };
+
+        // 画出按钮
+        function drawBtn(obj) {
+            // console.log(file[btn]);
+            ctx.drawImage(
+                img,
+                file[obj.name].x,
+                file[obj.name].y,
+                file[obj.name].w,
+                file[obj.name].h,
+                obj.x,
+                obj.y,
+                obj.w,
+                obj.h
+            );
+        }
+
+        function ready() {
+            // 更新两个小球 半径
+            donghua(l)
+            donghua(r)
+            // 画出两个小球
+            drawCircle(game.center.x - l.minR, game.center.y - l.maxR, l.r, l.color, true)
+            drawCircle(game.center.x + r.minR, game.center.y - r.minR, r.r, r.color, true)
+            // 按钮
+            drawBtn(start_btn_png);
+        }
+
+        // 球球构造器
+        function Boll(m, n) {
+            this.r = randomNum(m, n);
+            this.color = randomColor();
+            this.over = false;
+        }
+        // 球球原始位置生成
+        Boll.prototype.generateCoord = function () {
+            this.x = -this.r
+            var num = randomNum(0, 3);
+            switch (num) {
+                case 0:
+                    // 上
+                    this.x = randomNum(-this.r, game.boxW + this.r)
+                    this.y = -this.r;
+                    break;
+                case 1:
+                    // 右
+                    this.x = game.boxW + this.r
+                    this.y = randomNum(-this.r, game.boxH + this.r)
+                    break;
+                case 2:
+                    // 下
+                    this.x = randomNum(-this.r, game.boxW + this.r)
+                    this.y = game.boxH + this.r;
+                    break;
+                case 3:
+                    // 左
+                    his.x = -this.r;
+                    this.y = randomNum(-this.r, game.boxH + this.r)
+                    break;
+            }
+        }
+        // 球球速度
+        var bollSpeed = 5
+        Boll.prototype.generateSpeed = function () {
+            if (this.x > game.boxW) {
+                this.sx = -randomFloor(0, 5);
+                this.sy = randomFloor(-5, 5);
+            }
+            if (this.x < 0) {
+                this.sx = randomFloor(0, 5);
+                this.sy = randomFloor(-5, 5);
+            }
+            if (this.y > game.boxH) {
+                this.sx = randomFloor(-5, 5);
+                this.sy = -randomFloor(0, 5);
+            }
+            if (this.y < 0) {
+                this.sx = randomFloor(-5, 5);
+                this.sy = randomFloor(0, 5);
+            }
+        }
+        // 球球移动
+        Boll.prototype.move = function () {
+            this.x = this.x + this.sx / 2;
+            this.y = this.y + this.sy / 2;
+        }
+
+        // 我的球球
+        function MyBoll() {
+            this.x = game.center.x;
+            this.y = game.center.y;
+            this.r = 5;
+            this.color = 'red';
+            this.loop = {
+                r: this.r,
+                minR: this.r,
+                maxR: this.r + 10,
+                color: randomColor(),
+                zoom: true
+            };
+        }
+        var myCircle = new MyBoll()
+        // 所有球球数组
+        var segement = [];
+        var frames = 0;
+        var score = 0;
+        // 我的球球移动
+        var chumo = function (event) {
+            var x = event.offsetX || event.touches[0].pageX;
+            var y = event.offsetY || event.touches[0].pageY;
+            myCircle.x = x;
+            myCircle.y = y;
+        };
+        // 随机数
+        function randomNum(m, n) {
+            return Math.floor(Math.random() * (n - m) + m)
+        }
+
+        function randomFloor(m, n) {
+            return Math.random() * (n - m) + m;
+        }
+        // 检测超出画布
+        Boll.prototype.checkOver = function () {
+            var rightOver = this.x > game.stageW + this.r;
+            var leftOver = this.x < -this.r;
+            var bottomOver = this.y > game.stageH + this.r;
+            var topOver = this.y < -this.r;
+            this.over = rightOver || leftOver || topOver || bottomOver;
+        }
+        // 遍历 是否碰撞
+        function checkAllCrash() {
+            segement.forEach(function (ele, ie, segement) {
+                var s = Math.sqrt((ele.x - myCircle.x) * (ele.x - myCircle.x) + (ele.y - myCircle.y) * (ele.y -
+                    myCircle.y))
+
+                var aaa = s < ele.r + myCircle.r ? true : false;
+                // 碰撞 之后
+                if (aaa) {
+                    if (ele.r > myCircle.r) {
+                        console.log('死亡');
+                        gameover();
+                    } else {
+                        ele.die = true;
+
+                        myCircle.r += ele.r / 10;
+                        myCircle.loop.r += ele.r / 10;
+                        myCircle.loop.maxR += ele.r / 10;
+                        myCircle.loop.minR += ele.r / 10;
+                        // 分数
+                        score++
+                        console.log('吃掉了' + score + '个');
+                    }
+                }
+            });
+        };
+        // 游戏开始
+        function start() {
+            frames++;
+            checkAllCrash();
+            donghua(myCircle.loop)
+            drawCircle(myCircle.x, myCircle.y, myCircle.r, myCircle.color, true);
+            drawCircle(myCircle.x, myCircle.y, myCircle.loop.r, myCircle.loop.color, false);
+
+            if (!(frames % 10)) {
+                var newBoll = new Boll(myCircle.r - 5, myCircle.r + 15);
+                newBoll.generateCoord();
+                newBoll.generateSpeed();
+                segement.push(newBoll)
+            }
+            // 
+            segement.forEach(function (boll, index) {
+                boll.move();
+                drawCircle(boll.x, boll.y, boll.r, boll.color, true);
+                // 检测标记超出
+                boll.checkOver();
+                // 删除数组里面已经超出的球球和死掉的球球
+                if (boll.over || boll.die) {
+                    segement.splice(index, 1);
+                }
+                // 得分
+                ctx.font = '30px Arial'
+                ctx.fillStyle = '#333333'
+                ctx.fillText(score, 10, 50);
+            })
+        }
+
+        // 游戏结束
+        function gameover() {
+            clearInterval(id);
+            canvas.removeEventListener("mousemove", chumo);
+            canvas.removeEventListener("touchmove", chumo);
+            setTimeout(function () {
+                var aaa = '再来一次'
+                console.log('xxxx');
+                ctx.fillStyle = "#ca855c";
+                ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 - 50, 200, 100);
+                ctx.fill()
+                ctx.font = '36px Arial'
+                ctx.fillStyle = '#333333'
+                ctx.fillText(aaa, canvas.width / 2 - 70, canvas.height / 2, );
+                canvas.onclick = function (event) {
+                    var x = event.offsetX >= canvas.width / 2 - 100 && event.offsetX <= canvas.width / 2 + 100;
+                    var y = event.offsetY >= canvas.height / 2 - 50 && event.offsetY <= canvas.height / 2 + 50;
+                    if (x && y) {
+                        console.log('kkk');
+                        var id = setInterval(function () {
+                            ctx.clearRect(0, 0, game.boxW, game.boxH);
+                            drawBg();
+                            ready();
+                        }, 30);
+                    }
+                }
+            }, 30);
+            // 
+            if (localStorage.score) {
+                var oldArr = JSON.parse(localStorage.score)
+                for (var i = 0; i < oldArr.length; i++) {
+                    for (key in oldArr[i]) {
+                        if (key == score) {
+                            oldArr[i][key]++
+                            localStorage.score = JSON.stringify(oldArr);
+                            return
+                        }
+                    }
+                }
+                var newSore = {};
+                newSore[score] = 1;
+                oldArr.push(newSore);
+                localStorage.score = JSON.stringify(oldArr);
+            } else {
+                var newSore = {};
+                newSore[score] = 1;
+                localStorage.score = JSON.stringify([newSore]);
+            }
+        }
+        // 主体
+        var id = setInterval(function () {
+            // 每次开始，清空画布
+            ctx.clearRect(0, 0, game.boxW, game.boxH);
+            // 画出背景
+            drawBg();
+            if (!game.start) {
+                // 准备
+                ready();
+                // 
+            } else {
+                // 开始
+                start();
+            }
+        }, 30);
+
+        var kaishi = function (event) {
+            var xCrash = event.offsetX >= start_btn_png.x && event.offsetX <= start_btn_png.x + start_btn_png.w;
+            var yCrash = event.offsetY >= start_btn_png.y && event.offsetY <= start_btn_png.y + start_btn_png.h;
+            if (xCrash && yCrash) {
+                // console.log("xxx");
+                // 开始游戏
+                game.start = true;
+                // 添加触摸事件
+                canvas.addEventListener("mousemove", chumo);
+
+            }
+            if (navigator.maxTouchPoints) {
+                canvas.addEventListener("touchmove", chumo);
+            }
+        };
+        canvas.addEventListener('click', kaishi);
+    </script>
+</body>
+
+</html>
